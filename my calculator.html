@@ -1,0 +1,63 @@
+<html>
+    <head>
+        <title>my simple calculator</title>
+        <link rel="stylesheet" href="machine.css">
+        <script>
+            var motif="" ;
+            function affCh(nombre)
+           {
+            motif+=nombre;
+            document.getElementById('sortie').value = motif;
+           }
+            function annulation()
+            {
+                var retZero=document.getElementById('zoneSortie');
+                retZero.reset() ;
+            }
+            function retZero() 
+            {
+                var retour=document.getElementById('sortie') ;
+                retour.value='0';
+            }
+            function calculator()
+               {
+                var oper=document.getElementById('sortie') ;
+                var result=eval(oper.value) ;
+                oper.value=result;
+               }
+         </script>
+    </head>
+    <body>
+            <form id="zoneSortie">
+                
+                  <input type="text"  id="sortie" readonly><br> <br>
+         
+                       <input type="button" value="OFF" class="annul" onclick="annulation()" > 
+                       <input type="button" value="ON/AC"  class="annul" id="supr" onclick="retZero()">
+                       <input type="button" value="*" class="operation" id="fois" onclick="affCh('*')"> 
+                       <input type="button" value="/" class="operation" id="division" onclick="affCh('/')"> <br>
+          <br> <!-- 1er ligne-->
+                       <input type="button" value="7" id="sept" class="nombre" onclick="affCh(7)"> <!-- 2em ligne-->
+                       <input type="button" value="8" id="huit" class="nombre" onclick="affCh(8)">
+                       <input type="button" value="9" id="neuf" class="nombre" onclick="affCh(9)"> 
+                       <input type="button" value="-" class="operation" id="moins" onclick="affCh('-')"> <br> <br> <!-- 3em ligne-->
+                       <input type="button" value="4" id="quatre" class="nombre" onclick="affCh(4)">
+                       <input type="button" value="5" id="cinq" class="nombre" onclick="affCh(5)">
+                      <input type="button" value="6" id="six" class="nombre" onclick="affCh(6)"> 
+                      <input type="button" value="+" class="operation" id="plus" onclick="affCh('+')"> <br> <br>  <!--4em ligne-->
+            <table>
+              <tr>
+                 <td> <input type="button" value="1" id="un" class="nombre" onclick="affCh(1)"> </td>
+                 <td> <input type="button" value="2" id="deux" class="nombre" onclick="affCh(2)"> </td>
+                  <td><input type="button" value="3" id="trois" class="nombre" onclick="affCh(3)"> </td>
+                 <td rowspan="2"> <input type="button" value="=" class="validation" id="egale" onclick="calculator()">   <br> <!-- 5em ligne--></td>
+              </tr>
+                <tr>
+                 <td colspan="2"> <input type="button" value="0" class="monStyle" id="zero" onclick="affCh(0)"> </td>
+                 <td> <input type="button" value="." class="virg" id="virgule" onclick="affCh('.')"> </td>
+              </tr>
+            </table>
+       </form>
+
+        </body>
+</html>
